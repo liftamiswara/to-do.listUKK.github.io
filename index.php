@@ -69,9 +69,9 @@ $result = mysqli_query($koneksi, "SELECT * FROM tasks ORDER BY due_date ASC");
                 <td><?= $row['due_date']; ?></td>
                 <td><?= $row['status']; ?></td>
                 <td>
-                    <a href="edit.html?id=<?= $row['id']; ?>" class="edit">Edit</a>
-                    <a href="index.html?done=<?= $row['id']; ?>" class="done">Selesai</a>
-                    <a href="index.html?delete=<?= $row['id']; ?>" class="delete" onclick="return confirm('Hapus task ini?')">Hapus</a>
+                    <a href="edit.php?id=<?= $row['id']; ?>" class="edit">Edit</a>
+                    <a href="index.php?done=<?= $row['id']; ?>" class="done">Selesai</a>
+                    <a href="index.php?delete=<?= $row['id']; ?>" class="delete" onclick="return confirm('Hapus task ini?')">Hapus</a>
                 </td>
             </tr>
             <?php } ?>
