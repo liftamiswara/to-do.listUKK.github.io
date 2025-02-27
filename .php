@@ -1,29 +1,6 @@
 <?php
 $koneksi = mysqli_connect('localhost', 'root', '', 'todolist_db');
 
-// Tambah Tugas
-if (isset($_POST['add_task'])) {
-    $task = $_POST['task'];
-    $priority = $_POST['priority'];
-    $due_date = $_POST['due_date'];
-    mysqli_query($koneksi, "INSERT INTO tasks (task, priority, due_date) VALUES ('$task', '$priority', '$due_date')");
-    header('Location: index.php');
-}
-
-// Tandai Selesai
-if (isset($_GET['done'])) {
-    $id = $_GET['done'];
-    mysqli_query($koneksi, "UPDATE tasks SET status='Selesai' WHERE id=$id");
-    header('Location: index.php');
-}
-
-// Hapus Tugas
-if (isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    mysqli_query($koneksi, "DELETE FROM tasks WHERE id=$id");
-    header('Location: index.php');
-}
-
 // Ambil Data
 $result = mysqli_query($koneksi, "SELECT * FROM tasks ORDER BY due_date ASC");
 ?>
